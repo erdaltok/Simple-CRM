@@ -1,0 +1,19 @@
+.addUserBtn {
+    border-radius: 20px;
+    border: none;
+    background-color: #004f4e;
+    padding: 20px;
+    position: absolute;
+    right: 56px;
+    bottom: 56px;
+    &:hover {
+        background-color: #0b8482;
+        cursor: pointer;
+    }
+}
+
+.addUserIcon {
+    font-size: 40px;
+    height: 44px;
+    width: 44px;
+}
