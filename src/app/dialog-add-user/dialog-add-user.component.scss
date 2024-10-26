@@ -1,15 +1,15 @@
 .form-container {
+    padding: 20px;
+} 
+
+
+.input-container {
     display: flex;
-    
-}
-
-
-.inputField {
-   padding: 20px;
+    justify-content: space-between;
     
 }
 
 h1 {
+    padding-bottom: 20px;
     margin: 0;
-    padding: 15px 0 15px 44px;
 }
