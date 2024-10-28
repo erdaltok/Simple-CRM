@@ -38,7 +38,7 @@ export class DialogAddUserComponent {
 
   saveUser() {
     if (this.birthDate) {
-      const formattedDate = this.birthDate.toLocaleDateString('de-DE');
+      const formattedDate = this.birthDate.toLocaleDateString('en-US');
       this.user.birthDate = formattedDate; // Speichern als formatiertes Datum
       console.log('Current user is', this.user);
     }
