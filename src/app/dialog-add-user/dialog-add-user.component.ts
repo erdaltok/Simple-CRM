@@ -8,6 +8,8 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 
 import { User } from '../../models/user.class';
+import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { inject } from '@angular/core';
 
 
 @Component({
@@ -29,6 +31,8 @@ import { User } from '../../models/user.class';
 export class DialogAddUserComponent {
   readonly startDate = new Date(1990, 0, 1);
 
+    firestore: Firestore = inject(Firestore);
+
   user = new User();
   birthDate?: Date;
 
@@ -39,11 +43,18 @@ export class DialogAddUserComponent {
   saveUser() {
     if (this.birthDate) {
       const formattedDate = this.birthDate.toLocaleDateString('en-US');
-      this.user.birthDate = formattedDate; // Speichern als formatiertes Datum
+      this.user.birthDate = formattedDate; 
       console.log('Current user is', this.user);
-    }
-    
-      
-    }
+
+      addDoc(this.getUsersRef(), this.user.toJSON())
+        .then((result) => {
+          console.log('Adding user finished', result);          
+      })        
+    }         
+  }
+  
+  getUsersRef() {
+    return collection(this.firestore, 'users');
+  }
 
 }
