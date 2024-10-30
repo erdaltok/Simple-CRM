@@ -1,5 +1,6 @@
 .form-container {
-    padding: 20px;
+    padding: 0 20px 20px 20px;
+    position: relative;
 } 
 
 
@@ -12,4 +13,9 @@
 h1 {
     padding-bottom: 20px;
     margin: 0;
+}
+
+.progress-bar {
+    position: absolute;
+    left: 0;
 }
