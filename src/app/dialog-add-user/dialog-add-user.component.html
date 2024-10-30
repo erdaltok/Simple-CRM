@@ -56,7 +56,7 @@
     </mat-dialog-content>
 
     <mat-dialog-actions>
-        <button mat-button>Cancel</button>
+        <button (click)="closeDialog()" mat-button>Cancel</button>
         <button (click)="saveUser()" mat-button>Save</button>
     </mat-dialog-actions>
 

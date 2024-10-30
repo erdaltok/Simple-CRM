@@ -4,6 +4,7 @@ import {
   MatDialogModule,
   MatDialogActions,
   MatDialog,
+  MatDialogRef,
 } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,7 +30,7 @@ import { inject } from '@angular/core';
     MatDatepickerModule,
     FormsModule,
     MatProgressBarModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-add-user.component.html',
@@ -43,7 +44,7 @@ export class DialogAddUserComponent {
   birthDate?: Date;
   loading = false;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {}
 
   saveUser() {
     if (this.birthDate) {
@@ -53,14 +54,20 @@ export class DialogAddUserComponent {
       console.log('Current user is', this.user);
 
       addDoc(this.getUsersRef(), this.user.toJSON()).then((result) => {
-         this.loading = false;
+        this.loading = false;
         console.log('Adding user finished', result);
+          this.dialogRef.close();
       });
     }
-   
   }
 
   getUsersRef() {
     return collection(this.firestore, 'users');
   }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+
 }
