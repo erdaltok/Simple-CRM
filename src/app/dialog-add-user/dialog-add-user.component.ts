@@ -69,5 +69,7 @@ export class DialogAddUserComponent {
     this.dialogRef.close();
   }
 
+  // generate a function for log the user
+
 
 }

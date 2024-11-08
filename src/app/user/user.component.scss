@@ -17,3 +17,38 @@
     height: 44px;
     width: 44px;
 }
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    tr {
+        border-bottom: 1px solid rgba(228, 219, 219, 0.4);
+        cursor: pointer;
+        &:hover {
+            background-color: #0b8482;
+        }
+        &:first-child {
+            cursor: unset;
+            &:hover {
+                background-color: unset;
+            }
+        }
+        &:last-child {
+            border-bottom: 0;
+        }
+        th {
+            color: rgba(228, 219, 219, 0.4);
+            font-size: 16px;
+            font-weight: 500;
+            text-align: start;
+            padding: 0 16px 0 16px;
+            height: 36px;
+        }
+        td {
+            padding: 0 16px 0 16px;
+            height: 48px;
+        }
+    }
+}
+
+
